@@ -28,34 +28,34 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id='booking-form-hide' class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input id="flying-form-input" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="flying-to-input" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                        <input id="departure-input" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Time</label>
-                    <input class="inp-style" type="time" name="">
+                    <input id="departure-input-time" class="inp-style" type="time" name="">
                 </div>
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Return</label>
-                        <input class="inp-style" type="date" name="">
+                        <input id="return-input" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Time</label>
-                    <input class="inp-style" type="time" name="">
+                    <input id="return-input-time" class="inp-style" type="time" name="">
                 </div>
             </div>
             <div class="input-group f-class">
@@ -106,7 +106,29 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="bookNow" class="btn-style">Book Now</button>
+        </div>
+        <div id="booking-form-show" class="booking-confirm-details">
+            <div class="container">
+                <div class="booking-heading">
+                    <h1><b>Confirm Booking Flights</b></h1>
+                </div>
+                <div class="booking-details">
+                    <h3>Flying Form : &nbsp; <span id="flying-form-show"></span></h3>
+                    <h3>Flying To :&nbsp; <span id="flying-to-show"></span> </h3>
+                    <h3>Departure :&nbsp; <span id="departure-show"></span> Time: <span id="departure-time-show"></span>
+                    </h3>
+                    <h3>Return :&nbsp; <span id="return-show"></span> Time: <span id="return-time-show"></span></h3>
+                    <h3>First Class Seat Quantity :&nbsp; <span id="firstclass-seat-quentity-show"></span></h3>
+                    <h3>Economy Class Seat Quantity :&nbsp; <span id="economyclass-seat-quentity-show"></span></h3>
+                    <h3>Subtotal Amount:&nbsp; <span id="subtotal-amount-show"></span> </h3>
+                    <h3>Charge 10% VAT:&nbsp; <span id="vat-amount-show"></span> </h3>
+                    <h3>Total Amount:&nbsp; <b><span id="total-amount-show"></span></b></h3>
+                </div>
+                <div class="see-off-comment">
+                    <h1>Have a Nice Journey</h1>
+                </div>
+            </div>
         </div>
 
         <div class="booking-content">
@@ -189,6 +211,30 @@
                 const classRent = parseInt(classInput);
                 return classRent;
             }
+
+            //flight Confirm booking Details show
+            document.getElementById('bookNow').addEventListener('click', function () {
+
+                document.getElementById('flying-form-show').innerText = document.getElementById('flying-form-input').value;
+                document.getElementById('flying-to-show').innerText = document.getElementById('flying-to-input').value;
+                document.getElementById('departure-show').innerText = document.getElementById('departure-input').value;
+                document.getElementById('departure-time-show').innerText = document.getElementById('departure-input-time').value;
+                document.getElementById('return-show').innerText = document.getElementById('return-input').value;
+                document.getElementById('return-time-show').innerText = document.getElementById('return-input-time').value;
+                document.getElementById('firstclass-seat-quentity-show').innerText = document.getElementById('firstClass-total-ticket').value;
+                document.getElementById('economyclass-seat-quentity-show').innerText = document.getElementById('EconomyClass-total-ticket').value;
+                document.getElementById('subtotal-amount-show').innerText = document.getElementById('subtotal').innerText;
+                document.getElementById('vat-amount-show').innerText = document.getElementById('vat').innerText;
+                document.getElementById('total-amount-show').innerText = document.getElementById('total').innerText;
+
+                //
+                const bookingFormHide = document.getElementById('booking-form-hide');
+                bookingFormHide.style.display = 'none';
+
+                const bookingFormShow = document.getElementById('booking-form-show');
+                bookingFormShow.style.display = 'block';
+            })
+
         </script>
 </body>
 
